@@ -41,14 +41,14 @@ terraform apply
 
 ## 애플리케이션 배포
 ``` bash
-# Springboot 빌드(jra)
+# Springboot 빌드
 ./gradlew clean build
 
 # Docker 이미지 빌드
-docker build -t spring-boot-app .
+docker build -t springboot-app .
 
 # 컨테이너 레지스트리 업로드
-docker push [레지스트리 주소]/spring-boot-app
+docker push [레지스트리 주소]/springboot-app
 
 # Kubernetes 배포
 kubectl apply -f k8s/
