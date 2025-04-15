@@ -67,3 +67,4 @@ terraform.rc
 
 # add
 .terraform.lock.hcl
+.DS_Store
