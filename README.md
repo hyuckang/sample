@@ -20,7 +20,7 @@ Terraform을 사용해 AWS EKS와 VPC를 구성하고, Spring Boot 컨테이너�
 - [Spring Boot Application](https://spring.io/guides/gs/spring-boot-docker)
   - Spring Boot 3.4.4
   - Gradle (Groovy)
-  - Java
+  - Java 17
   - Docker
 
 # 프로젝트 배포
@@ -41,14 +41,21 @@ terraform apply
 
 ## 애플리케이션 배포
 ``` bash
+# 빌드 환경
+java-17-amazon-corretto-devel
+openjdk 17.0.14 2025-01-21 LTS
+OpenJDK Runtime Environment Corretto-17.0.14.7.1 (build 17.0.14+7-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.14.7.1 (build 17.0.14+7-LTS, mixed mode, sharing)
+
 # Springboot 빌드
 ./gradlew clean build
 
 # Docker 이미지 빌드
-docker build -t springboot-app .
+docker build -t sample-springboot .
 
-# 컨테이너 레지스트리 업로드
-docker push [레지스트리 주소]/springboot-app
+# 컨테이너 레지스트리 업로드 (ECR Push)
+docker tag sample-springboot:latest [레지스트리 주소]/sample-springboot:latest
+docker push [레지스트리 주소]/sample-springboot:latest
 
 # Kubernetes 배포
 kubectl apply -f k8s/
