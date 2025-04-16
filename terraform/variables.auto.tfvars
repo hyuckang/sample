@@ -1,6 +1,6 @@
-project_name           = 
-region                 = 
-vpc_name               = 
-cluster_name           = 
-cluster_admin_role     = 
-cluster_developer_role = 
+project_name           = "sample"
+region                 = "ap-northeast-2"
+vpc_name               = "sample-vpc"
+cluster_name           = "sample-eks-cluster"
+cluster_admin_role     = "Needs modification arn:aws:iam::111111111111:role/AdministratorAccess"
+cluster_developer_role = "Needs modification arn:aws:iam::111111111111:role/Developer"
